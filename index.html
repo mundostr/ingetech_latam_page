@@ -1,0 +1,177 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Signika:wght@300;400;700&display=swap" rel="stylesheet">
+
+<style>
+  body:has(.it-latam) { margin: 0; }
+  .it-latam {
+    --it-blue: #0099d8;         /* títulos azules (ajustar con el código real) */
+    --it-grey: #6f6f6f;         /* subtítulos grises en negrita */
+    --it-text: #7a7a7a;         /* texto de párrafos */
+    --it-dark: #333333;         /* listas / énfasis */
+    --it-yellow: #f2e03a;       /* amarillo del menú activo */
+    --it-overlay: rgba(0, 153, 216, .62); /* capa azul sobre la imagen del hero */
+    --it-soft: #f4f7f9;
+
+    /* ===== AJUSTE DEL HEADER (el tema pone el header encima de la imagen) ===== */
+    --it-header-h: 110px;  /* altura aproximada del header/menú: subir o bajar según se vea */
+    --it-top-gap: 0px;     /* si queda una franja blanca arriba, poner aquí su altura (ej. 40px) */
+
+    font-family: 'Signika', sans-serif;
+    font-weight: 300;
+    color: var(--it-text);
+    line-height: 1.7;
+    font-size: 18px;
+    overflow-x: clip;
+  }
+  .it-latam, .it-latam *, .it-latam *::before, .it-latam *::after { box-sizing: border-box; }
+  .it-latam h1, .it-latam h2, .it-latam h3 {
+    font-family: 'Signika', sans-serif; font-weight: 700; line-height: 1.2; margin: 0 0 .5em;
+  }
+  .it-latam .it-wrap { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+  .it-latam .it-center { text-align: center; }
+
+  /* ===== HERO (ancho completo) ===== */
+  .it-latam .it-hero {
+    position: relative;
+    width: 100vw;
+    margin: calc(-1 * var(--it-top-gap)) 0 0 calc(50% - 50vw); /* sin margen: sube hasta el borde superior, detrás del header */
+    background: #1a7fb0 url('https://ingetechrobotics.com/wp-content/uploads/2019/10/fondo-servicios.jpg') center top / cover no-repeat;
+    color: #fff; text-align: center;
+    padding: calc(var(--it-header-h) + var(--it-top-gap) + 70px) 20px 100px;
+  }
+  .it-latam .it-hero::before { content: ""; position: absolute; inset: 0; background: var(--it-overlay); }
+  .it-latam .it-hero > * { position: relative; }
+  .it-latam .it-hero .it-kicker { font-size: 1.5rem; font-weight: 300; margin: 0 0 10px; }
+  .it-latam .it-hero h1 {
+    color: #fff; text-transform: uppercase; font-size: clamp(2rem, 5vw, 3.4rem);
+    max-width: 900px; margin: 0 auto 20px;
+  }
+  .it-latam .it-hero p.it-lead {
+    max-width: 760px; margin: 0 auto; font-size: 1.4rem; font-weight: 300; color: #fff;
+  }
+  .it-latam .it-hero .it-lead strong { color: var(--it-yellow); font-weight: 700; }
+
+  /* ===== SECCIONES ===== */
+  .it-latam .it-section { padding: 70px 0; background: #fff; }
+  .it-latam .it-soft { background: var(--it-soft); }
+  .it-latam h2 { color: var(--it-blue); font-size: 2.2rem; }
+  .it-latam .it-sub { color: var(--it-grey); font-weight: 700; font-size: 1.4rem; margin-bottom: 1em; }
+  .it-latam p { margin: 0 0 1em; }
+
+  .it-latam .it-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 45px; align-items: center; }
+  .it-latam .it-photo {
+    width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 6px;
+    background: #eef2f5; border: 2px dashed #b9c6d0;
+    display: flex; align-items: center; justify-content: center; text-align: center;
+    padding: 20px; color: #8b99a5; font-size: 1rem;
+  }
+  .it-latam img.it-photo { border: 0; display: block; box-shadow: 0 8px 24px rgba(0,0,0,.15); }
+
+  /* Servicios */
+  .it-latam .it-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; margin-top: 35px; }
+  .it-latam .it-card {
+    background: #fff; padding: 30px 26px; text-align: center; border-bottom: 4px solid var(--it-blue);
+    box-shadow: 0 3px 14px rgba(0,0,0,.08); transition: transform .25s, box-shadow .25s;
+  }
+  .it-latam .it-card:hover { transform: translateY(-6px); box-shadow: 0 10px 24px rgba(0,0,0,.14); }
+  .it-latam .it-card h3 { color: var(--it-dark); text-transform: uppercase; font-size: 1.25rem; }
+  .it-latam .it-card p { margin: 0; }
+
+  /* Persona + contacto */
+  .it-latam .it-person {
+    display: grid; grid-template-columns: 170px 1fr; gap: 35px; align-items: center;
+    max-width: 880px; margin: 35px auto 0; text-align: left;
+    background: #fff; padding: 35px; border-left: 5px solid var(--it-blue);
+    box-shadow: 0 6px 24px rgba(0,0,0,.1);
+  }
+  .it-latam .it-avatar {
+    width: 170px; height: 170px; border-radius: 50%; object-fit: cover;
+    background: #eef2f5; border: 2px dashed #b9c6d0;
+    display: flex; align-items: center; justify-content: center; text-align: center;
+    padding: 10px; color: #8b99a5; font-size: .85rem;
+  }
+  .it-latam img.it-avatar { border: 4px solid #fff; box-shadow: 0 0 0 3px var(--it-blue); }
+  .it-latam .it-person h3 { color: var(--it-dark); font-size: 1.6rem; margin-bottom: .1em; }
+  .it-latam .it-role { color: var(--it-blue); font-weight: 700; margin: 0 0 12px; }
+  .it-latam .it-quote { font-style: italic; }
+  .it-latam .it-contact { list-style: none; padding: 0; margin: 0 0 22px; }
+  .it-latam .it-contact li { margin-bottom: 6px; font-weight: 400; }
+  .it-latam .it-contact a { color: var(--it-dark); font-weight: 700; text-decoration: none; }
+  .it-latam .it-contact a:hover { color: var(--it-blue); }
+  .it-latam .it-btn {
+    display: inline-block; background: var(--it-blue); color: #fff !important; font-weight: 700;
+    text-transform: uppercase; text-decoration: none; padding: 13px 32px; border-radius: 3px;
+    transition: background .25s;
+  }
+  .it-latam .it-btn:hover { background: var(--it-dark); }
+
+  @media (max-width: 800px) {
+    .it-latam .it-grid, .it-latam .it-cards { grid-template-columns: 1fr; }
+    .it-latam .it-person { grid-template-columns: 1fr; text-align: center; justify-items: center; }
+    .it-latam .it-hero { padding: 80px 20px 70px; }
+  }
+</style>
+
+<div class="it-latam">
+
+  <!-- HERO -->
+  <section class="it-hero">
+    <p class="it-kicker">Seguimos creciendo</p>
+    <h1>¡Ingetech Robotics llega oficialmente a LATAM!</h1>
+    <p class="it-lead">Soluciones de paletizado y final de línea, <strong>ahora con presencia local</strong> en la región.</p>
+  </section>
+
+  <!-- TEXTO + FOTO OFICINA -->
+  <section class="it-section">
+    <div class="it-wrap it-grid">
+      <div>
+        <h2>Ya estamos en LATAM</h2>
+        <p class="it-sub">Presencia continua de la firma en Latinoamérica (excepto Brasil).</p>
+        <p>Desde hace algunos meses nos encontramos trabajando junto a nuestro responsable en LATAM para garantizar presencia permanente de la firma en la región.</p>
+        <p>Ya nos encontramos en condiciones de brindar todo el soporte necesario, tanto en asesoramiento como en montaje y mantenimiento dentro de nuestros servicios de Paletizado y adicionales de final de línea.</p>
+      </div>
+
+      <!-- FOTO OFICINA: borrar el <div> y descomentar el <img> con la URL real -->
+      <div class="it-photo">[ Foto de la oficina en Latam<br>(recomendado 1200×900 px) ]</div>
+      <!-- <img class="it-photo" src="URL_FOTO_OFICINA.jpg" alt="Oficina de Ingetech Robotics en Latam"> -->
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section class="it-section it-soft">
+    <div class="it-wrap it-center">
+      <h2>Nuestro soporte</h2>
+      <p class="it-sub">Para que usted no tenga que preocuparse de nada.</p>
+      <div class="it-cards">
+        <div class="it-card"><h3>Asesoramiento</h3><p>Analizamos su línea y proponemos la solución de paletizado más adecuada para su operación.</p></div>
+        <div class="it-card"><h3>Montaje</h3><p>Instalación y puesta en marcha de nuestras celdas con acompañamiento cercano en su región.</p></div>
+        <div class="it-card"><h3>Mantenimiento</h3><p>Servicio y soporte continuo para garantizar la disponibilidad de su equipo.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PERSONA + CONTACTO -->
+  <section class="it-section">
+    <div class="it-wrap it-center">
+      <h2>Responsable de área</h2>
+      <p class="it-sub">Atención directa en su zona horaria y por supuesto en español.</p>
+
+      <div class="it-person">
+        <!-- <div class="it-avatar">[ Su foto<br>400×400 px ]</div> -->
+        <img class="it-avatar" src="assets/cperren.jpeg" alt="Carlos Perren, Responsable Latam">
+
+        <div>
+          <h3>Lic. Carlos A. Perren</h3>
+          <p class="it-role">Ingetech Robotics LATAM</p>
+          <p class="it-quote">“Disposición permanente para asesoramiento y soporte”</p>
+          <ul class="it-contact">
+            <li>✉ <a href="mailto:cperren@ingetechrobotics.com">cperren@ingetechrobotics.com</a></li>
+            <li>☎ <a href="tel:+54 9 3492 522 778">+54 9 3492 522 778</a></li>
+          </ul>
+          <a class="it-btn" href="mailto:cperren@ingetechrobotics.com">Contáctenos</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
